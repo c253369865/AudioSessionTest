@@ -172,7 +172,7 @@ static WTAudioManager *_sharedInstance = nil;
                 options = AVAudioSessionCategoryOptionDefaultToSpeaker;
                 break;
             case WTAudioCategoryRecordWithMusic:
-                options = AVAudioSessionCategoryOptionDefaultToSpeaker;
+                options = AVAudioSessionCategoryOptionMixWithOthers | AVAudioSessionCategoryOptionDefaultToSpeaker;
                 break;
             case WTAudioCategoryPlayWithoutMusic:
                 options = AVAudioSessionCategoryOptionDefaultToSpeaker;
@@ -205,6 +205,7 @@ static WTAudioManager *_sharedInstance = nil;
 
 - (void)deactiveSession:(WTAudioCategory)audioCategory block:(FinishBlock)finishBlock
 {
+    /*
     WT_TICK
     BOOL isOtherAudioPlaying = [[AVAudioSession sharedInstance] isOtherAudioPlaying];
     NSLog(@"WTAudioManager deactiveSession isOtherAudioPlaying %@", isOtherAudioPlaying ? @"YES" : @"NO");
@@ -222,6 +223,12 @@ static WTAudioManager *_sharedInstance = nil;
             finishBlock(WTAudioSessionCodeSueecss);
         }
     }
+    */
+    
+    __weak typeof(self) weakSelf = self;
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [weakSelf setSessionActive:NO block:finishBlock];
+    });
 }
 
 - (void)playWithSpeaker

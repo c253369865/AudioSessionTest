@@ -62,9 +62,6 @@
 - (IBAction)recordClick:(id)sender {
     [[WTAudioManager sharedInstance] activeSession:WTAudioCategoryRecordWithoutMusic block:^(WTAudioSessionCode code) {
         if (code == WTAudioSessionCodeSueecss) {
-//            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0* NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-//                [[WTAudioManager sharedInstance] startRecord];
-//            });
             [[WTAudioManager sharedInstance] startRecord];
         }
     }];
@@ -75,18 +72,32 @@
     [[WTAudioManager sharedInstance] deactiveSession:WTAudioCategoryRecordWithoutMusic block:nil];
 }
 
+- (IBAction)recordWithMusicClick:(id)sender {
+    [[WTAudioManager sharedInstance] activeSession:WTAudioCategoryRecordWithMusic block:^(WTAudioSessionCode code) {
+        if (code == WTAudioSessionCodeSueecss) {
+            [[WTAudioManager sharedInstance] startRecord];
+        }
+    }];
+}
+
+- (IBAction)stopRecordWithMusicClick:(id)sender {
+    [[WTAudioManager sharedInstance] stopRecord];
+    [[WTAudioManager sharedInstance] deactiveSession:WTAudioCategoryRecordWithMusic block:nil];
+}
+
 - (IBAction)playAudioClick:(id)sender {
     [[WTAudioManager sharedInstance] activeSession:WTAudioCategoryPlayWithoutMusic block:^(WTAudioSessionCode code) {
         if (code == WTAudioSessionCodeSueecss) {
             NSString *path = [[WTAudioManager sharedInstance] recordPath];
             NSData *data = [NSData dataWithContentsOfFile:path];
-            NSLog(@"audio length %lu", data.length);
+            NSLog(@"audio length %lu", (unsigned long)data.length);
             [[WTAudioManager sharedInstance] playWith:data finish:^{
                 NSLog(@"play audio end.");
             }];
         }
     }];
 }
+
 - (IBAction)stopPlayAudioClick:(id)sender {
     [[WTAudioManager sharedInstance] stopPlay];
     [[WTAudioManager sharedInstance] deactiveSession:WTAudioCategoryPlayWithoutMusic block:nil];
@@ -104,6 +115,7 @@
         }
     }];
 }
+
 - (IBAction)stopVideoClick:(id)sender {
     [self playbackFinished:nil];
 }
