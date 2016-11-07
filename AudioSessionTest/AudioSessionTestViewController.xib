@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AudioSessionTestViewController">
+            <connections>
+                <outlet property="imageView" destination="Mzx-6T-BUO" id="iGR-aL-0Pb"/>
+                <outlet property="videoPlayView" destination="ZqI-O4-bLe" id="5gJ-cR-JTb"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="yellow_being" translatesAutoresizingMaskIntoConstraints="NO" id="Mzx-6T-BUO">
+                    <rect key="frame" x="157.5" y="80" width="60" height="52"/>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cl8-BX-QLD">
+                    <rect key="frame" x="148.5" y="152" width="78" height="30"/>
+                    <state key="normal" title="init Session"/>
+                    <connections>
+                        <action selector="initSessionClick:" destination="-1" eventType="touchUpInside" id="VDX-NN-cSG"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YJU-je-ayu">
+                    <rect key="frame" x="156.5" y="202" width="62" height="30"/>
+                    <state key="normal" title="开始录音"/>
+                    <connections>
+                        <action selector="recordClick:" destination="-1" eventType="touchUpInside" id="O3U-Eb-GIN"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EP7-Gq-81R">
+                    <rect key="frame" x="238" y="202" width="62" height="30"/>
+                    <state key="normal" title="停止录音"/>
+                    <connections>
+                        <action selector="stopRecordClick:" destination="-1" eventType="touchUpInside" id="iJD-zd-nT9"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YAP-3M-HoT">
+                    <rect key="frame" x="156.5" y="252" width="62" height="30"/>
+                    <state key="normal" title="播放录音"/>
+                    <connections>
+                        <action selector="playAudioClick:" destination="-1" eventType="touchUpInside" id="qtg-1C-Zcy"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9vT-9e-EBl">
+                    <rect key="frame" x="238" y="252" width="92" height="30"/>
+                    <state key="normal" title="停止播放录音"/>
+                    <connections>
+                        <action selector="stopPlayAudioClick:" destination="-1" eventType="touchUpInside" id="A5p-57-9Gi"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UwT-pr-LOX">
+                    <rect key="frame" x="156.5" y="302" width="62" height="30"/>
+                    <state key="normal" title="播放视频"/>
+                    <connections>
+                        <action selector="playVideoClick:" destination="-1" eventType="touchUpInside" id="Wfq-5Z-2No"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fsu-yg-CKm">
+                    <rect key="frame" x="238" y="302" width="62" height="30"/>
+                    <state key="normal" title="停止视频"/>
+                    <connections>
+                        <action selector="stopVideoClick:" destination="-1" eventType="touchUpInside" id="Nqe-mS-w8M"/>
+                    </connections>
+                </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZqI-O4-bLe" customClass="WTVideoPlayerView">
+                    <rect key="frame" x="104.5" y="352" width="166" height="168"/>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="168" id="BEY-jv-LkX"/>
+                        <constraint firstAttribute="width" constant="166" id="yoj-7l-hcL"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="Mzx-6T-BUO" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="50n-BM-dGd"/>
+                <constraint firstItem="YAP-3M-HoT" firstAttribute="centerX" secondItem="YJU-je-ayu" secondAttribute="centerX" id="6dO-sc-cl2"/>
+                <constraint firstItem="EP7-Gq-81R" firstAttribute="leading" secondItem="YJU-je-ayu" secondAttribute="trailing" constant="20" id="7ww-Ej-WaX"/>
+                <constraint firstItem="ZqI-O4-bLe" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="9Wq-cK-xdU"/>
+                <constraint firstItem="9vT-9e-EBl" firstAttribute="leading" secondItem="EP7-Gq-81R" secondAttribute="leading" id="EKf-bx-ppl"/>
+                <constraint firstItem="YJU-je-ayu" firstAttribute="centerX" secondItem="cl8-BX-QLD" secondAttribute="centerX" id="JlS-rA-DKN"/>
+                <constraint firstItem="UwT-pr-LOX" firstAttribute="top" secondItem="YAP-3M-HoT" secondAttribute="bottom" constant="20" id="KmY-qI-taV"/>
+                <constraint firstItem="9vT-9e-EBl" firstAttribute="bottom" secondItem="YAP-3M-HoT" secondAttribute="bottom" id="Kmu-ja-477"/>
+                <constraint firstItem="YAP-3M-HoT" firstAttribute="top" secondItem="YJU-je-ayu" secondAttribute="bottom" constant="20" id="Lch-5c-xuh"/>
+                <constraint firstItem="Mzx-6T-BUO" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="80" id="Omn-R7-umy"/>
+                <constraint firstItem="cl8-BX-QLD" firstAttribute="top" secondItem="Mzx-6T-BUO" secondAttribute="bottom" constant="20" id="S2f-xX-AsT"/>
+                <constraint firstItem="ZqI-O4-bLe" firstAttribute="top" secondItem="UwT-pr-LOX" secondAttribute="bottom" constant="20" id="ShR-G1-w4s"/>
+                <constraint firstItem="EP7-Gq-81R" firstAttribute="centerY" secondItem="YJU-je-ayu" secondAttribute="centerY" id="Sz5-cI-weA"/>
+                <constraint firstItem="fsu-yg-CKm" firstAttribute="bottom" secondItem="UwT-pr-LOX" secondAttribute="bottom" id="bIz-wF-9bm"/>
+                <constraint firstItem="YJU-je-ayu" firstAttribute="top" secondItem="cl8-BX-QLD" secondAttribute="bottom" constant="20" id="fyG-Df-nCV"/>
+                <constraint firstItem="cl8-BX-QLD" firstAttribute="centerX" secondItem="Mzx-6T-BUO" secondAttribute="centerX" id="oS8-EP-tqx"/>
+                <constraint firstItem="UwT-pr-LOX" firstAttribute="centerX" secondItem="YAP-3M-HoT" secondAttribute="centerX" id="rpJ-BU-Ao1"/>
+                <constraint firstItem="fsu-yg-CKm" firstAttribute="leading" secondItem="EP7-Gq-81R" secondAttribute="leading" id="uo6-z8-mvG"/>
+            </constraints>
+            <point key="canvasLocation" x="24.5" y="51.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="yellow_being" width="60" height="52"/>
+    </resources>
+</document>
